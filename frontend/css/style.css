@@ -1,104 +1,209 @@
-/* frontend/css/style.css */
+/* frontend/css/style.css - Estilos Modernos y Centrados */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Variables para mantener la coherencia del color */
+:root {
+    --primary-color: #7d3c98; /* Morado base */
+    --secondary-color: #f7f3f9; /* Blanco/Crema suave */
+    --accent-color: #5cb85c; /* Verde/Acento para botones de acción */
+    --text-dark: #333;
+    --text-light: #fff;
+    --shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    /* Fondo degradado moderno */
+    background: linear-gradient(135deg, var(--primary-color) 0%, #b39cd0 100%);
+    color: var(--text-dark);
+    /* Usar altura completa para centrar verticalmente */
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background: #333;
-    color: #fff;
-    padding: 20px 0;
+    background: var(--text-dark);
+    color: var(--text-light);
+    padding: 15px 0;
     text-align: center;
+    box-shadow: var(--shadow);
 }
 
 main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Sección de Autenticación */
-#auth-section {
+    /* Permitir que el main ocupe el espacio restante y centrar */
+    flex-grow: 1; 
     display: flex;
-    justify-content: space-around;
-    gap: 40px;
+    justify-content: center;
+    align-items: center; /* Centrado vertical en la pantalla */
     padding: 20px;
-    border-bottom: 1px solid #eee;
 }
 
-#login-form, #register-form {
-    flex: 1;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-}
+/* --- ESTILOS DE AUTENTICACIÓN CENTRADA --- */
 
-input[type="text"], input[type="email"], textarea {
+#auth-container {
+    background: var(--secondary-color);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra dramática */
+    max-width: 450px; /* Ancho fijo para el formulario */
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 30px;
+    text-align: center;
+}
+
+#auth-section {
+    display: block; /* Desactivar flexbox aquí para el centrado simple */
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Estilos de Pestañas */
+.tabs {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.tab-button {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+    border-bottom: 3px solid transparent;
+    color: var(--text-dark);
+    transition: all 0.3s;
+}
+
+.tab-button.active {
+    font-weight: 600;
+    border-bottom: 3px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Estilos de Formulario */
+.auth-form {
+    padding: 10px 0;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background: white;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.icon {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+input[type="text"], input[type="email"] {
+    flex-grow: 1;
+    padding: 12px 0;
+    border: none;
+    outline: none;
+    background: none;
 }
 
 button {
-    background-color: #5cb85c;
+    width: 100%;
+    background-color: var(--primary-color);
     color: white;
-    padding: 10px 15px;
+    padding: 12px 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    margin-top: 10px;
 }
 
 button:hover {
-    background-color: #4cae4c;
+    background-color: #5d3074;
 }
 
-/* Sección de Aplicación */
-#app-section section {
-    margin-top: 30px;
-    padding: 20px;
-    border: 1px solid #eee;
+/* --- ESTILOS DE LA APLICACIÓN (DESPUÉS DEL LOGIN) --- */
+
+#app-section {
+    /* Mantenemos el mismo estilo de tarjeta para el contenido de la app */
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 30px;
+}
+
+#create-order, #order-list {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Estilos de inputs y textarea para la sección de órdenes */
+input[type="text"], textarea, input[type="email"] {
+    border: 1px solid #ddd;
     border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    outline: none;
 }
 
-/* Tabla de Órdenes */
+textarea {
+    min-height: 80px;
+}
+
+/* Estilos de Tabla */
 #orders-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden; /* Para que las esquinas redondeadas funcionen */
 }
 
 #orders-table th, #orders-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 1px solid #eee;
+    padding: 10px;
     text-align: left;
 }
 
 #orders-table th {
-    background-color: #f2f2f2;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+#orders-table tr:nth-child(even) {
+    background-color: #f8f8f8; /* Rayado para mejor lectura */
 }
 
 /* Botones de acción en tabla */
 #orders-table button {
+    background-color: var(--accent-color);
+    width: auto;
     padding: 5px 10px;
-    background-color: #007bff;
+    font-size: 14px;
+    margin-top: 0;
 }
 
 #orders-table button:hover {
-    background-color: #0056b3;
-}
-
-#auth-message, #order-message, #list-message {
-    margin-top: 15px;
-    font-weight: bold;
+    background-color: #4CAF50;
 }
