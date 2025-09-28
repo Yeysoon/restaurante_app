@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante - Gestión de Órdenes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Órdenes del Restaurante</h1>
+    </header>
+
+    <main>
+        <div id="auth-section">
+            <h2>Acceso de Clientes</h2>
+            <div id="login-form">
+                <h3>Iniciar Sesión</h3>
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="text" id="login-telefono" placeholder="Teléfono" required>
+                <button onclick="app.handleLogin()">Entrar</button>
+            </div>
+            
+            <div id="register-form">
+                <h3>Registrarse</h3>
+                <input type="text" id="reg-nombre" placeholder="Nombre" required>
+                <input type="email" id="reg-email" placeholder="Email" required>
+                <input type="text" id="reg-telefono" placeholder="Teléfono" required>
+                <button onclick="app.handleRegister()">Registrar</button>
+            </div>
+            <p id="auth-message"></p>
+        </div>
+
+        <div id="app-section" style="display: none;">
+            <p>Bienvenido, <strong id="welcome-name"></strong>! (<a href="#" onclick="app.handleLogout()">Salir</a>)</p>
+
+            <section id="create-order">
+                <h2>Crear Nuevo Pedido</h2>
+                <input type="text" id="order-platillo" placeholder="Nombre del Platillo" required>
+                <textarea id="order-notes" placeholder="Notas adicionales (opcional)"></textarea>
+                <button onclick="app.handleCreateOrder()">Registrar Pedido</button>
+                <p id="order-message"></p>
+            </section>
+
+            <section id="order-list">
+                <h2>Mis Pedidos</h2>
+                <table id="orders-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Platillo</th>
+                            <th>Estado</th>
+                            <th>Creado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+                <p id="list-message"></p>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
