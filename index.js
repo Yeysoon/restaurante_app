@@ -5,11 +5,11 @@ const path = require('path');
 require('dotenv').config({ path: '../.env' }); // Cargar variables
 
 // Importar el Pool de la DB (inicializa la conexión)
-const db = require('./config/db'); 
+const db = require('./backend/config/db'); 
 
 // Importar rutas
-const clienteRoutes = require('./routes/clienteRoutes');
-const ordenRoutes = require('./routes/ordenRoutes');
+const clienteRoutes = require('./backend/routes/clienteRoutes');
+const ordenRoutes = require('./backend/routes/ordenRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
